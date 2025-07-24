@@ -1,4 +1,4 @@
-import { Component, DestroyRef, inject, OnInit, signal } from '@angular/core';
+import { Component, DestroyRef, effect, inject, OnInit, signal } from '@angular/core';
 import { interval } from 'rxjs';
 
 @Component({
@@ -12,7 +12,11 @@ export class ServerStatusComponent implements OnInit {
   currentStatus = signal<'online' | 'offline' | 'unknown'>('offline');
   private destoryRef = inject(DestroyRef);
 
-  constructor() { }
+  constructor() {
+    effect(() => {
+      console.log(this.currentStatus());
+    });
+  }
 
   ngOnInit() {
     console.log('ON INIT');
