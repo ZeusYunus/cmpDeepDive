@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, input } from '@angular/core';
+
+import { Ticket } from '../tickets.model';
 
 @Component({
   selector: 'app-ticket',
@@ -8,5 +10,5 @@ import { Component } from '@angular/core';
   styleUrl: './ticket.component.css'
 })
 export class TicketComponent {
-
+  data = input.required<Ticket>();
 }
