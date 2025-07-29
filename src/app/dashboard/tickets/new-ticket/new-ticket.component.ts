@@ -28,6 +28,7 @@ export class NewTicketComponent implements OnInit ,AfterViewInit {
     console.log('After View Init');
     console.log(this.form?.nativeElement);
   }
+  
 
   onSubmit() {
     this.add.emit({title: this.enteredTitle, text: this.enteredText});
